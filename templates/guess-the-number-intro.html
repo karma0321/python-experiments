@@ -9,7 +9,7 @@
         <p>Welcome back to our "Guess the number" game, {{ player_name }}</p>
         <p>Are you ready to play the best game ever invented??</p>
         <a href="/guess-the-number/play"><button class="btn btn-primary" type="button">Claro que sí!</button></a>
-
+        {% include "guess-the-number-reset-name.html" %}
     {# COMMENT: Else if we don't have the player name yet, show a form to get the name. #}
     {% else %}
         <div class="row">
