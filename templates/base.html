@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>SmartNinja with Jinja</title>
+        <title>{{title if title else 'Jinja experiments'}} | SmartNinja with Jinja</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="/static/css/style.css">
     </head>
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <a class="navbar-brand" href="#">Jinja experiment site</a>
+                  <a class="navbar-brand" href="/">Jinja experiment site</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -34,7 +34,7 @@
                       {% if title %}
                         <h1 class="display-4">{{ title }}</h1>
                     {% else %}
-                        <h1 class="display-4">Welcome to our Jinja site</h1>
+                        <h1 class="display-4">Welcome to another Jinja experiment site</h1>
                     {% endif %}
 
                 </div>

@@ -20,20 +20,20 @@ def hello():
     return render_template("hello.html")
 
 @app.route("/guess-the-number", methods=["GET", "POST"])
-def guess_the_number():
+def guess_the_number(title="Guess the number!!"):
     if request.method == "GET":
         if request.cookies.get("player_name"):
             player_name = request.cookies.get("player_name")
         else:
-            return render_template('guess-the-number-intro.html')
+            return render_template('guess-the-number-intro.html', title=title)
 
-        return render_template('guess-the-number-intro.html', player_name=player_name)
+        return render_template('guess-the-number-intro.html', player_name=player_name, title=title)
 
     elif request.method == "POST":
         if request.form.get("player-name"):
             player_name = request.form.get("player-name")
 
-            response = make_response(render_template("guess-the-number.html", player_name=player_name))
+            response = make_response(render_template("guess-the-number.html", player_name=player_name, title=title))
             response.set_cookie("player_name", player_name)
             return response
         else:
@@ -47,7 +47,7 @@ def guess_the_number_play(title="Guess the number!!"):
         if request.cookies.get("player_name"):
             player_name = request.cookies.get("player_name")
         else:
-            # Be sure to have a player name, else redirect to the Enter name view
+            # Be sure to have a player name, else redirect to the Enter name page
             return redirect("/guess-the-number")
         response = make_response(render_template('guess-the-number.html', player_name=player_name, title=title))
         response.set_cookie("secret", expires=0)
