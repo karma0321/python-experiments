@@ -1,9 +1,11 @@
+{# COMMENT: The form uses the method POST and activates the logic in /guess-the-number/play #}
 <form method="POST" action="/guess-the-number/play">
     <div class="row">
         <div class="col-sm-12 my-1">
             <label for="guess">Guess the number:</label>
         </div>
         <div class="col-sm-12 my-1">
+            {# COMMENT: For the value attribute I have used an inline condition: if guess exists, print guess, if not, print 1 #}
             <input type="number" name="guess" id="guess" class="guess-field" value="{{guess if guess else '1'}}"  autofocus>
         </div>
         <div class="col-sm-12 my-1">

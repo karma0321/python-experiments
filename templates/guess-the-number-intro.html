@@ -2,17 +2,21 @@
 
 {% block content %}
     {% include "guess-the-number-header.html" %}
+
+    {# COMMENT: Check if we have received a player_name variable #}
+    {# COMMENT: If we have it, just welcome the player by his name #}
     {% if player_name %}
         <p>Welcome back to our "Guess the number" game, {{ player_name }}</p>
         <p>Are you ready to play the best game ever invented??</p>
         <a href="/guess-the-number/play"><button class="btn btn-primary" type="button">Claro que sí!</button></a>
+
+    {# COMMENT: Else if we don't have the player name yet, show a form to get the name. #}
     {% else %}
         <div class="row">
             <div class="col-sm-12 my-1 mx-auto">
                 <p>Welcome to our "Guess the number" game!</p>
                 <p>Please, first of all, how should I call you?</p>
             </div>
-
             <div class="col-sm-12 my-1 mx-auto">
                 <form  method="post" action="/guess-the-number" class="enter-name-form">
                     <input type="text" name="player-name"  class="big-input" placeholder="Your name" autofocus>

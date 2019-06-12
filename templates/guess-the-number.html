@@ -1,15 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+    {# COMMENT: Here we include another template file for the header of the game, to avoid repeating #}
     {% include "guess-the-number-header.html" %}
+
+    {# COMMENT: We should have a player_name value, but if not, just don't print the h2 at all #}
     {% if player_name %}
         <h2>Let's go {{ player_name }}!!</h2>
     {% endif %}
+    {# COMMENT: If we receive a message from the app, print it in an alert box #}
     {% if message %}
         <div class="alert alert-warning" role="alert">
             <p>{{ message }}</p>
         </div>
         {% endif %}
+
+        {# COMMENT: If we already know what the secret number is, show a button to display the number in a modal #}
         {% if secret %}
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-secret">
@@ -17,6 +24,8 @@
         </button>
         <hr>
         {% endif %}
+
+        {# COMMENT: Include the template with the game form #}
         {% include "guess-the-number-game.html" %}
         <!-- Modal -->
         <div class="modal fade" id="modal-secret" tabindex="-1" role="dialog" aria-labelledby="modal-center-title" aria-hidden="true">
