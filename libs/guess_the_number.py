@@ -5,24 +5,23 @@ def play_guess_the_number(guess, secret):
     guess = int(guess)
     # set a boolean flag to inform if the game is over. It will change to true if our player guesses the number
     success = False
-    while True:
-        last_guess_message = "Last guess: {}".format(guess)
-        if guess == secret:
-            message = "Yeah!! You guessed it!\nThe right number is {0}".format(secret)
-            success = True
+    last_guess_message = "Last guess: {}".format(guess)
+    if guess == secret:
+        message = "Yeah!! You guessed it!\nThe right number is {0}".format(secret)
+        success = True
 
-            # In this case the function returns two values (separated with comma).
-            return success, message
-        elif guess < secret:
-            message = "Wrong guess... try something bigger.\n{}".format(last_guess_message)
+        # In this case the function returns two values (separated with comma).
+        return success, message
+    elif guess < secret:
+        message = "Wrong guess... try something bigger.\n{}".format(last_guess_message)
 
-            # the function returns two values (separated with comma).
-            return success, message
-        else:
-            message = "Wrong guess... try something smaller.\n{}".format(last_guess_message)
+        # the function returns two values (separated with comma).
+        return success, message
+    else:
+        message = "Wrong guess... try something smaller.\n{}".format(last_guess_message)
 
-            # the function returns two values (separated with comma).
-            return success, message
+        # the function returns two values (separated with comma).
+        return success, message
 
 if __name__ == '__main__':
     play_guess_the_number()
