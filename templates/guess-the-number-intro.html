@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "guess-the-number-header.html" %}
+    {% if player_name %}
+        <p>Welcome back to our "Guess the number" game, {{ player_name }}</p>
+        <p>Are you ready to play the best game ever invented??</p>
+        <a href="/guess-the-number/play"><button class="btn btn-primary" type="button">Claro que sí!</button></a>
+    {% else %}
+        <div class="row">
+            <div class="col-sm-12 my-1 mx-auto">
+                <p>Welcome to our "Guess the number" game!</p>
+                <p>Please, first of all, how should I call you?</p>
+            </div>
+
+            <div class="col-sm-12 my-1 mx-auto">
+                <form  method="post" action="/guess-the-number" class="enter-name-form">
+                    <input type="text" name="player-name"  class="big-input" placeholder="Your name" autofocus>
+                    <button class="btn btn-lg btn-primary my-2" type="submit">Let's go!</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}

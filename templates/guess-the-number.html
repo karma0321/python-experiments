@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "guess-the-number-header.html" %}
+    {% if player_name %}
+        <h2>Let's go {{ player_name }}!!</h2>
+    {% endif %}
+    {% if message %}
+        <div class="alert alert-warning" role="alert">
+            <p>{{ message }}</p>
+        </div>
+        {% else %}
+            <h3>Try to guess a number between 1 and 50!</h3>
+        {% endif %}
+        {% if secret %}
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-secret">
+          Check the secret (spoiler alert)
+        </button>
+        <hr>
+        {% endif %}
+        {% include "guess-the-number-game.html" %}
+        <!-- Modal -->
+        <div class="modal fade" id="modal-secret" tabindex="-1" role="dialog" aria-labelledby="modal-center-title" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal-center-title">Secret number</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse-secret" aria-expanded="false" aria-controls="collapseExample">
+                    Reveal the secret
+                  </button>
+                </p>
+                <div class="collapse" id="collapse-secret">
+                  <div class="card card-body">
+                    <p>The secret number is {{ secret }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock content %}

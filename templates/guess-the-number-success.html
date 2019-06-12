@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+        {% include "guess-the-number-header.html" %}
+        {% if message %}
+        <div class="row">
+            <div class="col-sm-12 my-1">
+                <div class="alert alert-success" role="alert">
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+            {% if guess %}
+                <div class="col-sm-12 my-1">
+                    <div class="guess-field right-guess mx-auto">
+                        {{ guess }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        {% endif %}
+            <p>Do you want to play again?</p>
+            <a href="/guess-the-number/play"><button class="btn btn-primary" type="button">Claro que sí!</button></a>
+
+{% endblock content %}
