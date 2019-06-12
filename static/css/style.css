@@ -36,6 +36,23 @@ body {
     border-color: green;
     background-color: green;
     color: white;
+    animation: rotation 2s infinite linear;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg) scale(.7);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.5);
+    }
+
+    100% {
+        transform: rotate(359deg) scale(.7);
+    }
 }
 
 .enter-name-form{
