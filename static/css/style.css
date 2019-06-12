@@ -43,14 +43,26 @@ body {
 
 @keyframes rotation {
     0% {
+        -moz-transform: rotate(0deg) scale(.7);
+        -webkit-transform: rotate(0deg) scale(.7);
+        -o-transform: rotate(0deg) scale(.7);
+        -ms-transform: rotate(0deg) scale(.7);
         transform: rotate(0deg) scale(.7);
     }
 
     50% {
+        -moz-transform: rotate(180deg) scale(1.5);
+        -webkit-transform: rotate(180deg) scale(1.5);
+        -o-transform: rotate(180deg) scale(1.5);
+        -ms-transform: rotate(180deg) scale(1.5);
         transform: rotate(180deg) scale(1.5);
     }
 
     100% {
+        -moz-transform: rotate(359deg) scale(.7);
+        -webkit-transform: rotate(359deg) scale(.7);
+        -o-transform: rotate(359deg) scale(.7);
+        -ms-transform: rotate(359deg) scale(.7);
         transform: rotate(359deg) scale(.7);
     }
 }
