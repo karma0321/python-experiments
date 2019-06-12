@@ -3,11 +3,12 @@ body {
     text-align: center;
 }
 
-.container{
+.container.main-container{
     min-height: 100vh;
     background-color: white;
     border-left: 4px solid steelblue;
     border-right: 4px solid steelblue;
+    padding-bottom: 50px;
 }
 
 .bg-primary{
