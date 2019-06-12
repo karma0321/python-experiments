@@ -2,7 +2,10 @@
 def play_guess_the_number(guess, secret):
     message = ''
     # Convert guess to an integer to be able to compare it with secret
-    guess = int(guess)
+    if guess:
+        guess = int(guess)
+    else:
+        guess = 0
     # set a boolean flag to inform if the game is over. It will change to true if our player guesses the number
     success = False
     last_guess_message = "Last guess: {}".format(guess)
