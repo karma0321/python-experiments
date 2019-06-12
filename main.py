@@ -135,6 +135,14 @@ def guess_the_number_play(title="Guess the number!!"):
 
         return response
 
+# Here we set a path where we can delete the player_name cookie and restart the game
+@app.route("/guess-the-number/reset-name")
+def guess_the_number_reset_name():
+    response = make_response(render_template("guess-the-number-intro.html"))
+    response.set_cookie("player_name", expires=0)
+
+    return response
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "GET":
