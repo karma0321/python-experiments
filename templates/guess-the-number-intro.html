@@ -7,6 +7,7 @@
     {# COMMENT: If we have it, just welcome the player by his name #}
     {% if player_name %}
         <p>Welcome back to our "Guess the number" game, {{ player_name }}</p>
+        <p>Your best score so far is: {{ best_score }}. You can do better... try harder! ;)</p>
         <p>Are you ready to play the best game ever invented??</p>
         <a href="/guess-the-number/play"><button class="btn btn-primary" type="button">Claro que sí!</button></a>
         {% include "guess-the-number-reset-name.html" %}
@@ -19,7 +20,8 @@
             </div>
             <div class="col-sm-12 my-1 mx-auto">
                 <form  method="post" action="/guess-the-number" class="enter-name-form">
-                    <input type="text" name="player-name"  class="big-input" placeholder="Your name" autofocus>
+                    <input type="text" name="player-name"  class="big-input" placeholder="Your name" autofocus required>
+                    <input type="email" name="player-email"  class="big-input" placeholder="Your email" autofocus required>
                     <button class="btn btn-lg btn-primary my-2" type="submit">Let's go!</button>
                 </form>
             </div>
