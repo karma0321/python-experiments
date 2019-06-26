@@ -3,28 +3,70 @@
 {% block content %}
     {% include "guess-the-number-header.html" %}
 
-    {# COMMENT: Check if we have received a player_name variable #}
-    {# COMMENT: If we have it, just welcome the player by his name #}
-    {% if player_name %}
-        <p>Welcome back to our "Guess the number" game, {{ player_name }}</p>
-        <p>Your best score so far is: {{ best_score }}. You can do better... try harder! ;)</p>
-        <p>Are you ready to play the best game ever invented??</p>
-        <a href="/guess-the-number/play"><button class="btn btn-primary" type="button">Claro que sí!</button></a>
-        {% include "guess-the-number-reset-name.html" %}
-    {# COMMENT: Else if we don't have the player name yet, show a form to get the name. #}
-    {% else %}
         <div class="row">
             <div class="col-sm-12 my-1 mx-auto">
+                {% if message %}
+                    <div class="alert alert-danger" role="alert">
+                        <p>{{ message }}</p>
+                    </div>
+                {% endif %}
                 <p>Welcome to our "Guess the number" game!</p>
-                <p>Please, first of all, how should I call you?</p>
-            </div>
-            <div class="col-sm-12 my-1 mx-auto">
-                <form  method="post" action="/guess-the-number" class="enter-name-form">
-                    <input type="text" name="player-name"  class="big-input" placeholder="Your name" autofocus required>
-                    <input type="email" name="player-email"  class="big-input" placeholder="Your email" autofocus required>
-                    <button class="btn btn-lg btn-primary my-2" type="submit">Let's go!</button>
-                </form>
+                <p>You have to login or register to play:</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-login">
+                    Login
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-register">
+                  Register
+                </button>
             </div>
         </div>
-    {% endif %}
+
+    <!-- Modal login -->
+        <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-title" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal-login-title">Login with existing account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="col-sm-12 my-1 mx-auto">
+                    <h4>Please login with your credentials:</h4>
+                    <form  method="post" action="/guess-the-number/login" class="login-form auth-form">
+                        <input type="email" name="login-email"  class="" placeholder="Your email" autofocus required>
+                        <input type="password" name="login-password"  class="" placeholder="Your password" autofocus required>
+                        <button class="btn btn-lg btn-primary my-2" type="submit">Let's go!</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Modal register -->
+        <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-title" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal-register-title">Register new account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="col-sm-12 my-1 mx-auto">
+                    <h4>Please enter required information:</h4>
+                    <form  method="post" action="/guess-the-number/register" class="create-user-form auth-form">
+                        <input type="text" name="new-player-name"  class="" placeholder="Your name" autofocus required>
+                        <input type="email" name="new-player-email"  class="" placeholder="Your email" autofocus required>
+                        <input type="password" name="new-player-password"  class="" placeholder="Enter a password" autofocus required>
+                        <button class="btn btn-lg btn-primary my-2" type="submit">Create user and start playing!</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 {% endblock content %}

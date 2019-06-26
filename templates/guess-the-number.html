@@ -6,8 +6,8 @@
     {% include "guess-the-number-header.html" %}
 
     {# COMMENT: We should have a player_name value, but if not, just don't print the h2 at all #}
-    {% if player_name %}
-        <h2>Let's go {{ player_name }}!!</h2>
+    {% if user %}
+        <h2>Let's go {{ user.name }}!!</h2>
     {% endif %}
     {# COMMENT: If we receive a message from the app, print it in an alert box #}
     {% if message %}
@@ -17,10 +17,10 @@
     {% endif %}
 
     {# COMMENT: If we already know what the secret number is, show a button to display the number in a modal #}
-    {% if secret %}
+    {% if user.secret_number %}
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-secret">
-      Check the secret (spoiler alert)
+      Check the secret number (spoiler alert)
     </button>
     <hr>
     {% endif %}
@@ -29,7 +29,7 @@
     {% include "guess-the-number-game.html" %}
 
     {# COMMENT: Include the template with the reset name link #}
-    {% include "guess-the-number-reset-name.html" %}
+    {% include "guess-the-number-logout.html" %}
 
     <!-- Modal -->
     <div class="modal fade" id="modal-secret" tabindex="-1" role="dialog" aria-labelledby="modal-center-title" aria-hidden="true">
@@ -49,7 +49,7 @@
             </p>
             <div class="collapse" id="collapse-secret">
               <div class="card card-body">
-                <p>The secret number is {{ secret }}</p>
+                <p>The secret number is {{ user.secret_number }}</p>
               </div>
             </div>
           </div>

@@ -68,18 +68,23 @@ body {
     }
 }
 
-.enter-name-form{
+.auth-form{
     display: flex;
     flex-direction: column;
 }
 
-.big-input{
-    height: 6rem;
+input{
     width: auto;
-    font-size: 3rem;
     text-align: center;
     border: 4px solid steelblue;
     background-color: white;
     color: steelblue;
     border-radius: 10px;
+    margin: .5rem 0;
+    padding: .5rem;
+}
+}
+.big-input{
+    height: 6rem;
+    font-size: 3rem;
 }

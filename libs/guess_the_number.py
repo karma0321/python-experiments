@@ -32,5 +32,6 @@ def play_guess_the_number(guess, attempts, secret):
     # The function returns three values (separated with comma).
     return success, attempts, message
 
+
 if __name__ == '__main__':
     play_guess_the_number()

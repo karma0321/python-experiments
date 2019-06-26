@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "guess-the-number-header.html" %}
+        <div class="row">
+            <div class="col-sm-12 my-1 mx-auto">
+                <p>Welcome to our "Guess the number" game!</p>
+                <p>We still haven't met yet, did we?</p>
+                <p>So, please, first of all, create an user.</p>
+            </div>
+            <div class="col-sm-12 my-1 mx-auto">
+                <form  method="post" action="/guess-the-number/register" class="create-user-form">
+                    <input type="text" name="new-player-name"  class="big-input" placeholder="Your name" autofocus required>
+                    <input type="email" name="new-player-email"  class="big-input" placeholder="Your email" autofocus required
+                    value="{{ player_email if player_email else '' }}">
+                    <button class="btn btn-lg btn-primary my-2" type="submit">Let's go!</button>
+                </form>
+            </div>
+        </div>
+{% endblock content %}
