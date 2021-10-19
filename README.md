@@ -1,2 +1,2 @@
 # python-experiments
-## Doing experiments with python
+## Just playing with python
